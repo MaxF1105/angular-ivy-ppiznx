@@ -1,0 +1,33 @@
+<p>Zur Liste Hinzufügen:</p>
+
+Listenname:<select id="Liste">
+<ng-container *ngFor="let block of listName">
+  <option *ngFor="let item of block?.list">{{item.name}}</option>
+</ng-container>
+</select> 
+Beschreibung: <input/>  
+Frist: <input type="Date"/>
+Gewicht: <select><option>Leicht</option><option>Mittel</option><option>Schwer</option></select>
+Titel: <input/>
+<br>
+<button>Bestätigen</button>
+
+
+
+<hr>
+
+<ng-container *ngFor="let block of yourData">
+<table>
+ 
+<tr><th *ngFor="let item of block?.list">{{item.name}}</th>
+
+<tr><th *ngFor="let item of block?.columns">{{item.heading}}</th></tr>
+
+<tr *ngFor="let row of block?.data">
+  <td *ngFor="let item of computeData(block?.columns, row)">{{item}}</td>
+  <td><input type="checkbox"/></td>
+</tr>
+
+
+</table>
+</ng-container>
